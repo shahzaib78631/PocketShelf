@@ -1,0 +1,37 @@
+{
+  "screen": {
+    "home": {
+      "title": "Home",
+      "greetings": "Happy weekend, Shahzaib! Dont forget to check out your new books!"
+    },
+    "settings": {
+      "title": "Settings"
+    },
+    "appearance": {
+      "title": "Appearance"
+    }
+  },
+  "book": {
+    "overview": {
+      "author": "By <b>{{author}}</b>",
+      "genre": "Genre: <b>{{genre}}</b>",
+      "rating": "Rating: <b>{{rating}}</b>",
+      "availableCopies": "Available Copies: <b>{{availableCopies}}</b>",
+      "totalCopies": "Total Copies: <b>{{totalCopies}}</b>",
+      "description": "Description: <b>{{description}}</b>",
+      "available": "Available"
+    }
+  },
+  "books": {
+    "popular": "Popular Books"
+  },
+  "common": {
+    "search": "Search",
+    "app": {
+      "name": "PockitShelf"
+    },
+    "save": {
+      "label": "Save"
+    }
+  }
+}

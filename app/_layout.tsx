@@ -1,39 +1,88 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { StatusBar } from 'expo-status-bar';
-import { useEffect } from 'react';
-import 'react-native-reanimated';
+import "@/components/sheets/sheets"; // Global Sheets import
+import { useEffect, useState } from "react";
+import EventSource from "react-native-sse";
 
-import { useColorScheme } from '@/hooks/useColorScheme';
+global.EventSource = EventSource as any; // Polyfill for EventSource
+// Import fonts library
+import * as Font from "expo-font";
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
+// Translation
+import { initI18n } from "@/strings/translations";
+import { View } from "react-native";
+import { commonStyles } from "@/theme/styles";
+import { ThemedActivityIndicator } from "@/components/ui";
+import { ThemeProvider } from "@/context/ThemeContext";
+import { SheetProvider } from "react-native-actions-sheet";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
+// Keyboard Provider
+import { KeyboardProvider } from "react-native-keyboard-controller";
 
+// Toaster
+import { Toaster } from "sonner-native";
+
+// Expo Router
+import { Stack } from "expo-router";
+
+const App = () => {
+  /** Track font loading state */
+  const [fontsLoaded, setFontsLoaded] = useState(false);
+
+  /** Load custom fonts and initialize translations on mount */
   useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
+    const loadFonts = async () => {
+      await Font.loadAsync({
+        "JetBrainsMono-Regular": require("../assets/fonts/JetBrainsMono-Regular.ttf"),
+        "JetBrainsMono-Bold": require("../assets/fonts/JetBrainsMono-Bold.ttf"),
+        "JetBrainsMono-SemiBold": require("../assets/fonts/JetBrainsMono-SemiBold.ttf"),
+        "JetBrainsMono-ExtraBold": require("../assets/fonts/JetBrainsMono-ExtraBold.ttf"),
+        "JetBrainsMono-ExtraLight": require("../assets/fonts/JetBrainsMono-ExtraLight.ttf"),
+        "JetBrainsMono-Light": require("../assets/fonts/JetBrainsMono-Light.ttf"),
+        "JetBrainsMono-Medium": require("../assets/fonts/JetBrainsMono-Medium.ttf"),
+        "JetBrainsMono-Thin": require("../assets/fonts/JetBrainsMono-Thin.ttf"),
+      });
+      setFontsLoaded(true);
+    };
 
-  if (!loaded) {
-    return null;
+    initI18n(); // Initialize i18n translations
+    loadFonts(); // Load fonts
+  }, []);
+
+  /** Show loading indicator while fonts are loading */
+  if (!fontsLoaded) {
+    return (
+      <View
+        style={[
+          commonStyles.flex1,
+          commonStyles.center,
+          commonStyles.container,
+        ]}
+      >
+        <ThemedActivityIndicator />
+      </View>
+    );
   }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <GestureHandlerRootView style={commonStyles.flex1}>
+      <KeyboardProvider>
+        <ThemeProvider>
+          <SheetProvider>
+            <Stack
+              screenOptions={{
+                headerShown: false, // Hide header globally
+                animation: "slide_from_bottom",
+              }}
+            >
+              {/* Load the main tabs screen */}
+              <Stack.Screen name="(tabs)" />
+            </Stack>
+            <Toaster />
+          </SheetProvider>
+        </ThemeProvider>
+      </KeyboardProvider>
+    </GestureHandlerRootView>
   );
-}
+};
+
+export default App;

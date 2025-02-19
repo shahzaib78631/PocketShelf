@@ -1,74 +1,74 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { Text, View } from "react-native";
+import React from "react";
+import {
+  ThemedButton,
+  ThemedMaterialCommunityIcons,
+  ThemedMaterialIcons,
+  ThemedText,
+  ThemedView,
+} from "@/components/ui";
+import { getString } from "@/strings/translations";
+import { commonStyles } from "@/theme/styles";
+import { StyleSheet } from "react-native-unistyles";
+import CoffeeButton from "@/components/CoffeeButton";
+import BookCover from "@/components/BookCover/BookCover";
+import { sampleBooks } from "@/constants/constants";
+import BookOverview from "@/components/BookOverview";
+import BooksList from "@/components/BooksList";
+import BooksSlider from "@/components/BooksSlider";
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+const home = () => {
+  const actions = [
+    {
+      icon: <ThemedMaterialIcons name="search" size={20} color="foreground" />,
+      onPress: () => {},
+    },
+    {
+      icon: <CoffeeButton />,
+      onPress: () => {},
+    },
+  ];
 
-export default function HomeScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
-  );
-}
+    <ThemedView
+      title={getString("common.app.name")}
+      goBackEnabled={false}
+      actions={actions}
+      style={commonStyles.gapMd}
+      scrollEnabled={true}
+    >
+      <View style={[commonStyles.rowAlignCenter, commonStyles.gapMd]}>
+        <View style={styles.personIconContainer}>
+          <ThemedMaterialIcons
+            name="person"
+            size={24}
+            color="primaryForeground"
+          />
+        </View>
+        <View style={[commonStyles.flex1]}>
+          <ThemedText type="extraBold">Shahzaib Ali</ThemedText>
+          <ThemedText fontSize="sm" color="accentForeground">
+            {getString("screen.home.greetings")}
+          </ThemedText>
+        </View>
+      </View>
 
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+      <BooksSlider books={sampleBooks} />
+
+      <BooksList title={getString("books.popular")} books={sampleBooks} />
+    </ThemedView>
+  );
+};
+
+export default home;
+
+const styles = StyleSheet.create((theme) => ({
+  personIconContainer: {
+    width: 40,
+    height: 40,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: theme.colors.primary,
+    borderRadius: "100%",
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});
+}));
