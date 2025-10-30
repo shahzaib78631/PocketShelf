@@ -1,0 +1,18 @@
+{
+"patient_name": "Shahzaib ali",
+"call_time_in_sec": 60,
+"number_of_questions": 3,
+"questions":  [{
+      "id": "q1",
+      "question": "How are you feeling today?",
+      "type": "open-ended",
+      "required": true
+    },
+    {
+      "id": "q2",
+      "question": "Have you taken all your medications today?",
+      "type": "yes-no",
+      "required": true
+    }],
+"message_to_deliver": "Mom i am going for a trip outside of country, take care of yourself and let papa know about this too i'll be back in 5 days".
+}
