@@ -1,18 +1,26 @@
 {
-"patient_name": "Shahzaib ali",
-"call_time_in_sec": 60,
-"number_of_questions": 3,
-"questions":  [{
+  "patient_name": "Shahzaib ali",
+  "call_time_in_sec": 60,
+  "number_of_questions": 3,
+  "questions": [
+    {
       "id": "q1",
-      "question": "How are you feeling today?",
-      "type": "open-ended",
+      "question": "Have you experienced any chest pain, discomfort, or tightness today?",
+      "type": "yes-no",
       "required": true
     },
     {
       "id": "q2",
-      "question": "Have you taken all your medications today?",
+      "question": "Have you taken all your heart medications today, including blood thinners and blood pressure medicine?",
       "type": "yes-no",
       "required": true
-    }],
-"message_to_deliver": "Mom i am going for a trip outside of country, take care of yourself and let papa know about this too i'll be back in 5 days".
+    },
+    {
+      "id": "q3",
+      "question": "Have you noticed any unusual shortness of breath, swelling in your legs or ankles, or irregular heartbeat?",
+      "type": "yes-no",
+      "required": true
+    }
+  ],
+  "message_to_deliver": "Mom, I am going for a trip outside of the country. Take care of yourself and let papa know about this too. I'll be back in 5 days."
 }
