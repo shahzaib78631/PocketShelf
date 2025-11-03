@@ -1,0 +1,10 @@
+{
+  "question_id": 2,
+  "question_text": "Did you went on your daily walk?",
+  "question_type": "enum",
+  "options": ["yes", "no"],
+  "has_more_questions": true,
+  "total_questions": 3,
+  "current_question_number": 2,
+  "next_question_number": 3,
+}
