@@ -4,7 +4,7 @@
   "question_type": "enum",
   "options": ["yes", "no"],
   "has_more_questions": true,
-  "total_questions": 3,
+  "total_questions": 2,
   "current_question_number": 2,
-  "next_question_number": 3,
+  "next_question_number": null,
 }
