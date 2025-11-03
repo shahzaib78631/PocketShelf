@@ -4,7 +4,7 @@
   "question_type": "enum",
   "options": ["Great", "Good", "Okay", "Not well"],
   "has_more_questions": true,
-  "total_questions": 3,
+  "total_questions": 2,
   "current_question_number": 1,
   "next_question_number": 2,
 }
