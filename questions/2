@@ -3,7 +3,7 @@
   "question_text": "Did you went on your daily walk?",
   "question_type": "enum",
   "options": ["yes", "no"],
-  "has_more_questions": true,
+  "has_more_questions": false,
   "total_questions": 2,
   "current_question_number": 2,
   "next_question_number": null,
