@@ -35,7 +35,7 @@
       "total_questions": 2,
       "current_question_number": 2,
       "next_question_number": null
-    },
+    }
   ],
   "message_to_deliver": "Mom, I am going for a trip outside of the country. Take care of yourself and let papa know about this too. I'll be back in 5 days.",
   "verbatim_msg": "Mom, I am going for a trip outside of the country. Take care of yourself and let papa know about this too. I'll be back in 5 days."
