@@ -7,26 +7,35 @@
   "weather": "rainy date",
   "questions": [
     {
-      "id": "q1",
-      "question_text": "Have you experienced any chest pain, discomfort, or tightness today?",
-      "type": "yes-no",
-      "required": true,
-      "has_more_questions": true
+      "question_id": 1,
+      "question_text": "How are you feeling today?",
+      "question_type": "enum",
+      "options": [
+        "Great",
+        "Good",
+        "Okay",
+        "Not well"
+      ],
+      "has_more_questions": true,
+      "total_questions": 2,
+      "current_question_number": 1,
+      "next_question_number": 2
     },
     {
-      "id": "q2",
+      "question_id": 2,
       "question_text": "Have you taken all your heart medications today, including blood thinners and blood pressure medicine?",
-      "type": "yes-no",
-      "required": true,
-      "has_more_questions": true
+      "question_type": "enum",
+      "options": [
+        "Great",
+        "Good",
+        "Okay",
+        "Not well"
+      ],
+      "has_more_questions": false,
+      "total_questions": 2,
+      "current_question_number": 2,
+      "next_question_number": null
     },
-    {
-      "id": "q3",
-      "question_text": "Have you noticed any unusual shortness of breath, swelling in your legs or ankles, or irregular heartbeat?",
-      "type": "yes-no",
-      "required": true,
-      "has_more_questions": false
-    }
   ],
   "message_to_deliver": "Mom, I am going for a trip outside of the country. Take care of yourself and let papa know about this too. I'll be back in 5 days.",
   "verbatim_msg": "Mom, I am going for a trip outside of the country. Take care of yourself and let papa know about this too. I'll be back in 5 days."
