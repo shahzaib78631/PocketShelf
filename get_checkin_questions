@@ -28,10 +28,8 @@
       "question_text": "Have you taken all your heart medications today, including blood thinners and blood pressure medicine?",
       "question_type": "enum",
       "options": [
-        "Great",
-        "Good",
-        "Okay",
-        "Not well"
+"yes",
+"no"
       ],
       "has_more_questions": false,
       "total_questions": 2,
