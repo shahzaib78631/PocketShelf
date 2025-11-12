@@ -1,0 +1,32 @@
+{
+  "questions": [
+    {
+      "question_id": 1,
+      "question_text": "How are you feeling today?",
+      "question_type": "enum",
+      "options": [
+        "Great",
+        "Good",
+        "Okay",
+        "Not well"
+      ],
+      "has_more_questions": true,
+      "total_questions": 2,
+      "current_question_number": 1,
+      "next_question_number": 2
+    },
+    {
+      "question_id": 2,
+      "question_text": "Have you taken all your heart medications today, including blood thinners and blood pressure medicine?",
+      "question_type": "enum",
+      "options": [
+        "yes",
+        "no"
+      ],
+      "has_more_questions": false,
+      "total_questions": 2,
+      "current_question_number": 2,
+      "next_question_number": null
+    }
+  ]
+}
