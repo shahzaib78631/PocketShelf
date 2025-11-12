@@ -8,7 +8,7 @@
   "today_time": "11:00 AM",
   "weather": "rainy date",
   "memory": "Member was feeling very good after hearing the news that he is going to be a father.",
-  "info_to_tell": {"today_date": "11 Nov 2025", "today_time": "11:30 AM", "weather": "rainy"},
+  "info_to_tell": {"today_date_time": "11 Nov 2025 11:30 AM", "weather": "rainy", news: "Today some robbers did a bank robbery near brooklyn bank."},
   "questions": [
     {
       "question_id": 1,
