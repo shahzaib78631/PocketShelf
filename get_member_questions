@@ -5,10 +5,8 @@
       "question_text": "Did you ate your lunch today ?",
       "question_type": "enum",
       "options": [
-        "Great",
-        "Good",
-        "Okay",
-        "Not well"
+        "Yes",
+        "No"
       ],
       "has_more_questions": true,
       "total_questions": 2,
